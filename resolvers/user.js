@@ -5,6 +5,7 @@ export default{
     },
 
     Mutation:{
-        createUser:(parent,args,{models}) => models.User.create(args)
+        createUser:(parent,args,{models}) => models.User.create(args),
+        deleteUser:(parent,{id},{models}) => models.User.destroy({where:{id}})
     }
 }

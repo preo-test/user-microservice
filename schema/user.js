@@ -15,5 +15,6 @@ export default `
  
  type Mutation{
     createUser(id:Int!,name:String!,lastname:String!,phone:String!,homeAddress:String!, age:String!): User!
+    deleteUser(id:Int!):User
  }
  `;
