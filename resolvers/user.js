@@ -1,11 +1,13 @@
-export default{
-    Query:{
-        getUser:(parent,{id},{models}) => models.User.findOne({where:{id}}),
-        allUsers:(parent,args,{models}) => models.User.findAll(),
-    },
+import Repository from '../repository/repository';
 
-    Mutation:{
-        createUser:(parent,args,{models}) => models.User.create(args),
-        deleteUser:(parent,{id},{models}) => models.User.destroy({where:{id}})
-    }
-}
+export default{
+  Query: {
+    getUser: (parent, { id }, context) => Repository.getUser({ id }),
+    allUsers: (parent, args, context) => Repository.allUsers(),
+  },
+
+  Mutation: {
+    createUser: (parent, args, { models }) => Repository.createUser(args),
+    deleteUser: (parent, { id }, { models }) => Repository.deleteUser({ id }),
+  },
+};
