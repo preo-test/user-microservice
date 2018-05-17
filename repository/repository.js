@@ -13,7 +13,7 @@ function createUser(data) {
 }
 
 function deleteUser(id) {
-  return models.User.destroy({ where: id });
+  return models.User.destroy({ where: id }).then('User deleted successfully');
 }
 
 module.exports = {
